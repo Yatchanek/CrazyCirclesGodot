@@ -66,7 +66,7 @@ func init(obj_type, rad, mobile, level, disable):
 	else:
 		moving = false
 	var anim_speed = clamp(1 + 0.05 * (level - 1), 1, 2)
-	$AnimationPlayer.set_speed_scale(1 + anim_speed)
+	$AnimationPlayer.set_speed_scale(anim_speed)
 
 
 func _process(delta):
