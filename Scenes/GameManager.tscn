@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/TitleScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/InstructionsScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Screens.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/GameOverScreen.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hurt"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Color( 0.0392157, 0.0392157, 0.0392157, 1 ), Color( 1, 0, 0, 1 ), Color( 0.0392157, 0.0392157, 0.0392157, 1 ) ]
+}
+
+[node name="GameManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hurt = SubResource( 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Screens" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="TitleScreen" parent="Screens" instance=ExtResource( 3 )]
+
+[node name="InstructionScreen" parent="Screens" instance=ExtResource( 4 )]
+offset = Vector2( 500, 0 )
+transform = Transform2D( 1, 0, 0, 1, 500, 0 )
+
+[node name="GameOverScreen" parent="Screens" instance=ExtResource( 6 )]
+offset = Vector2( 500, 0 )
+transform = Transform2D( 1, 0, 0, 1, 500, 0 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="level_advanced" from="HUD" to="." method="_on_Level_advanced"]
+[connection signal="phrase_shown" from="HUD" to="." method="_on_HUD_phrase_shown"]
+[connection signal="new_game" from="Screens" to="." method="_Start_game"]
+[connection signal="restart" from="Screens" to="." method="_on_Screens_restart"]
+[connection signal="title_screen" from="Screens" to="." method="_on_Screens_title_screen"]
