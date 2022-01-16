@@ -66,7 +66,7 @@ func init(obj_type, rad, mobile, level, disable):
 	else:
 		moving = false
 	var anim_speed = clamp(1 + 0.05 * (level - 1), 1, 2)
-	$AnimationPlayer.set_speed_scale(1 + 0.1 * (level - 1))
+	$AnimationPlayer.set_speed_scale(1 + anim_speed)
 
 
 func _process(delta):
@@ -79,7 +79,7 @@ func _process(delta):
 			velocity.y *= -1
 
 
-func _on_Circle_input_event(viewport, event, shape_idx):
+func _on_Circle_input_event(_viewport, event, _shape_idx):
 	if !is_disabled:
 		if (event is InputEventMouseButton and event.button_index == BUTTON_LEFT) or event is InputEventScreenTouch:
 			$CollisionShape.set_deferred("disabled", true)

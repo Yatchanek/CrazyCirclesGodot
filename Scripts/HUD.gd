@@ -29,17 +29,10 @@ func update_bars(bar, value, max_value):
 	if ratio > 0.6:
 		bar.tint_progress = Color.red
 	if ratio > 0.8:
-		if !blinking:
-			blink()
-			blinking = true
-	else:
-		blinking = false
+		pass
+
 		
-func blink():
-	$Tween.interpolate_property(fail_label.texture_progress, "modulate:a", 1, 0, 0.25, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.interpolate_property(fail_label.texture_progress, "modulate:a", 1, 0, 0.25, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0.25)
-	$Tween.repeat = true
-	$Tween.start()
+
 	
 func advance_level(level):
 	level_label.text = "Level %s" % level
@@ -49,8 +42,6 @@ func show_phrase():
 	$AnimationPlayer.play("Show Phrase")
 
 func hide():
-	$Tween.stop_all()
-	$Tween.repeat = false
 	if !hidden:
 		$Tween.interpolate_property($MarginContainer, "modulate:a", 1, 0, 0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.interpolate_property($ProgressBars, "modulate:a", 1, 0, 0, Tween.TRANS_LINEAR, Tween.EASE_IN)
