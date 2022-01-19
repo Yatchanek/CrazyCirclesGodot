@@ -4,7 +4,7 @@ onready var score_label = $MarginContainer/VBoxContainer/HBoxContainer/ScoreLabe
 onready var level_label = $LevelLabel
 onready var combo_label = $MarginContainer/VBoxContainer/HBoxContainer2/ComboLabel
 onready var fail_label = $ProgressBars/VBoxContainer2/HBoxContainer/FailProgress
-
+onready var highscore_label = $MarginContainer/VBoxContainer/HBoxContainer3/HighScoreLabel
 
 signal level_advanced
 signal phrase_shown

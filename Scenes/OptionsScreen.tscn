@@ -1,0 +1,264 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Assets/Menu Icons/audioOff.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Menu Icons/musicOff.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Menu Icons/musicOn.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Menu Icons/audioOn.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Screen.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Menu Icons/return.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Menu Icons/star.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/ScreenTitleSizedFont.tres" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Menu Icons/return_red.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Menu Icons/grabber_horiz_highlight.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Menu Icons/grabber_horiz.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Menu Icons/grabber.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Menu Icons/grabber_highlight.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Assets/Fonts/RussoOne-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 54
+font_data = SubResource( 4 )
+
+[sub_resource type="StyleBoxLine" id=3]
+color = Color( 1, 1, 1, 1 )
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 5
+vertical = true
+
+[sub_resource type="StyleBoxLine" id=8]
+color = Color( 0.533333, 0.133333, 0.133333, 1 )
+thickness = 6
+vertical = true
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxLine" id=5]
+color = Color( 1, 1, 1, 1 )
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id=6]
+color = Color( 0.533333, 0.133333, 0.133333, 1 )
+thickness = 5
+
+[node name="OptionsScreen" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -176.0
+margin_top = 70.0
+margin_right = 176.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -229.0
+margin_bottom = 229.0
+mouse_filter = 2
+custom_constants/separation = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+margin_right = 450.0
+margin_bottom = 308.0
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HboxContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_left = 150.0
+margin_right = 300.0
+margin_bottom = 50.0
+size_flags_horizontal = 4
+custom_constants/separation = 50
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/VBoxContainer/HboxContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2/VBoxContainer/HboxContainer"]
+margin_left = 100.0
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="HboxContainer2" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_top = 54.0
+margin_right = 450.0
+margin_bottom = 254.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 70
+alignment = 1
+
+[node name="EffectVolumeSlider" type="VSlider" parent="VBoxContainer2/VBoxContainer/HboxContainer2"]
+margin_left = 160.0
+margin_right = 190.0
+margin_bottom = 200.0
+grow_horizontal = 0
+rect_min_size = Vector2( 30, 200 )
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 8 )
+min_value = -20.0
+max_value = 20.0
+step = 5.0
+tick_count = 9
+ticks_on_borders = true
+
+[node name="MusicVolumeSlider" type="VSlider" parent="VBoxContainer2/VBoxContainer/HboxContainer2"]
+margin_left = 260.0
+margin_right = 290.0
+margin_bottom = 200.0
+custom_icons/grabber_highlight = ExtResource( 10 )
+custom_icons/grabber = ExtResource( 11 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 8 )
+min_value = -20.0
+max_value = 20.0
+step = 5.0
+tick_count = 9
+ticks_on_borders = true
+
+[node name="HboxContainer3" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_left = 150.0
+margin_top = 258.0
+margin_right = 300.0
+margin_bottom = 308.0
+size_flags_horizontal = 4
+custom_constants/separation = 50
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/VBoxContainer/HboxContainer3"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2/VBoxContainer/HboxContainer3"]
+margin_left = 100.0
+margin_right = 150.0
+margin_bottom = 50.0
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]
+margin_top = 408.0
+margin_right = 450.0
+margin_bottom = 472.0
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer2"]
+margin_right = 450.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 7 )
+text = "Difficulty"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer2"]
+margin_top = 34.0
+margin_right = 450.0
+margin_bottom = 64.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/VBoxContainer2/HBoxContainer"]
+margin_left = 79.0
+margin_right = 104.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 25, 25 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="DifficultySlider" type="HSlider" parent="VBoxContainer2/VBoxContainer2/HBoxContainer"]
+margin_left = 108.0
+margin_right = 283.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 175, 25 )
+custom_icons/grabber_highlight = ExtResource( 13 )
+custom_icons/grabber = ExtResource( 12 )
+custom_styles/slider = SubResource( 5 )
+custom_styles/grabber_area_highlight = SubResource( 6 )
+custom_styles/grabber_area = SubResource( 6 )
+min_value = 1.0
+max_value = 3.0
+value = 2.0
+tick_count = 3
+ticks_on_borders = true
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer2/VBoxContainer2/HBoxContainer"]
+margin_left = 287.0
+margin_right = 312.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 25, 25 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer2/VBoxContainer2/HBoxContainer"]
+margin_left = 316.0
+margin_right = 341.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 25, 25 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer2/VBoxContainer2/HBoxContainer"]
+margin_left = 345.0
+margin_right = 370.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 25, 25 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Back" type="TextureButton" parent="." groups=["Buttons"]]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -176.0
+margin_top = -159.0
+margin_right = 176.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 9 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}

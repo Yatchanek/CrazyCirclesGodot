@@ -1,12 +1,18 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Fonts/RussoOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Progress_upper.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Menu Icons/leaderboardsComplex.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Progress.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Menu Icons/cross.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Menu Icons/trophy.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Menu Icons/star.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=6]
+size = 72
+use_filter = true
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -21,7 +27,7 @@ font_data = ExtResource( 1 )
 [sub_resource type="Animation" id=9]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/CatchPhrase:modulate")
+tracks/0/path = NodePath("CatchPhrase:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,26 +36,62 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CatchPhrase2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CatchPhrase2:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CatchPhrase2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
 resource_name = "Show Phrase"
 length = 4.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/CatchPhrase:percent_visible")
+tracks/0/path = NodePath("CatchPhrase:percent_visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.8, 1.9, 2.2, 3.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 1.8, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.0, 1.0, 0.0, 0.0, 1.0 ]
+"values": [ 0.0, 1.0, 1.0, 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/CatchPhrase:text")
+tracks/1/path = NodePath("CatchPhrase:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -67,16 +109,64 @@ are
 bad!" ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("VBoxContainer/CatchPhrase:modulate")
+tracks/2/path = NodePath("CatchPhrase:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.5, 1.8, 2.1, 2.2, 3.7, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CatchPhrase:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CatchPhrase2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.9, 3.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CatchPhrase2:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.9, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CatchPhrase2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.9, 3.4, 3.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -95,13 +185,40 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=6]
-size = 72
-use_filter = true
-font_data = ExtResource( 1 )
-
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
+
+[node name="CatchPhrase" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -135.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 6 )
+text = "Circles
+are
+good!"
+align = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CatchPhrase2" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -135.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 6 )
+text = "Polygons
+are
+bad!"
+align = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 10.0
@@ -115,11 +232,34 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 60.0
-margin_bottom = 82.0
+margin_bottom = 125.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 60.0
 margin_bottom = 39.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+margin_right = 35.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 35, 35 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 39.0
+margin_right = 60.0
+margin_bottom = 39.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 60.0
+margin_bottom = 82.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 35.0
@@ -140,9 +280,9 @@ align = 2
 valign = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 43.0
+margin_top = 86.0
 margin_right = 60.0
-margin_bottom = 82.0
+margin_bottom = 125.0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 35.0
@@ -222,36 +362,5 @@ __meta__ = {
 anims/RESET = SubResource( 9 )
 "anims/Show Phrase" = SubResource( 8 )
 anims/ShowLevel = SubResource( 4 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -181.5
-margin_top = -158.5
-margin_right = 181.5
-margin_bottom = 158.5
-mouse_filter = 2
-custom_constants/separation = 15
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CatchPhrase" type="Label" parent="VBoxContainer"]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = 23.0
-margin_right = 363.0
-margin_bottom = 293.0
-custom_fonts/font = SubResource( 6 )
-text = "Circles
-are
-good!"
-align = 1
-percent_visible = 0.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

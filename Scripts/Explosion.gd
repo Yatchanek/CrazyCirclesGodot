@@ -5,15 +5,21 @@ onready var emitter = $CPUParticles2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	init()
-	yield(get_tree().create_timer(0.8), "timeout")
-	queue_free()
+	pass
 
-func init():
+func init(mode, color, size):
+	if mode == 1:
+		$CPUParticles2D.texture = load("res://Assets/Sprites/LineFragment.png")
+		$CPUParticles2D.scale_amount = 0.75
+		$CPUParticles2D.color = color
+		$CPUParticles2D.hue_variation = 0
+		$CPUParticles2D.amount = size
+	elif mode == 2:
+		$CPUParticles2D.texture = load("res://Assets/Sprites/RainbowCircle.png")
+		$CPUParticles2D.color = Color(1, 1, 1)
+		$CPUParticles2D.hue_variation = 0
 	$CPUParticles2D.emitting = true
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Timer_timeout():
+	queue_free()
