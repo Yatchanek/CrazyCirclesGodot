@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 onready var score_label = $MarginContainer/VBoxContainer/HBoxContainer/ScoreLabel
-onready var level_label = $LevelLabel
+onready var level_label = $Node2D/LevelLabel
 onready var combo_label = $MarginContainer/VBoxContainer/HBoxContainer2/ComboLabel
 onready var fail_label = $ProgressBars/VBoxContainer2/HBoxContainer/FailProgress
 onready var highscore_label = $MarginContainer/VBoxContainer/HBoxContainer3/HighScoreLabel
@@ -14,7 +14,7 @@ var blinking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	fail_label.max_value = get_parent().fail_capacity
+	var _err = $PauseButton.connect("pressed", get_parent(), "_on_PauseButton_pressed")
 
 func update_labels(label, value):
 	label.text = "%s" % value
@@ -45,6 +45,7 @@ func hide():
 	if !hidden:
 		$Tween.interpolate_property($MarginContainer, "modulate:a", 1, 0, 0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.interpolate_property($ProgressBars, "modulate:a", 1, 0, 0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$Tween.interpolate_property($PauseButton, "modulate:a", 1, 0, 0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.start()
 		hidden = true
 	
@@ -54,6 +55,7 @@ func show():
 	if hidden:
 		$Tween.interpolate_property($MarginContainer, "modulate:a", 0, 1, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.interpolate_property($ProgressBars, "modulate:a", 0, 1, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$Tween.interpolate_property($PauseButton, "modulate:a", 0, 1, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		$Tween.start()
 		hidden = false
 

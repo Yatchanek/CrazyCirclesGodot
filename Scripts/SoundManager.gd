@@ -7,7 +7,8 @@ var sounds = [preload("res://Assets/Sounds/circle.ogg"),
 			  preload("res://Assets/Sounds/polygon2.ogg"),
 			  preload("res://Assets/Sounds/polygon3.ogg"),
 			  preload("res://Assets/Sounds/fail.ogg"),
-			  preload("res://Assets/Sounds/game_over.ogg")]
+			  preload("res://Assets/Sounds/game_over.ogg"),
+			  preload("res://Assets/Sounds/Heal.ogg")]
 			
 var music = [preload("res://Assets/Sounds/MenuMusic.ogg"),
 			 preload("res://Assets/Sounds/Music.ogg"),
@@ -22,7 +23,8 @@ enum {
 	POLYGON_HIT_2,
 	POLYGON_HIT_3,
 	MISS,
-	GAME_OVER
+	GAME_OVER,
+	HEAL
 }
 
 enum {

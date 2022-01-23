@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
@@ -9,6 +9,23 @@
 [ext_resource path="res://Scripts/SoundManager.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Sounds/circle.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Scenes/OptionsScreen.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Heal"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Color( 0.0392157, 0.0392157, 0.0392157, 1 ), Color( 0.105882, 0.537255, 0.00392157, 1 ), Color( 0.0392157, 0.0392157, 0.0392157, 1 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hurt"
@@ -36,6 +53,7 @@ script = ExtResource( 1 )
 wait_time = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Heal = SubResource( 2 )
 anims/Hurt = SubResource( 1 )
 
 [node name="Background" type="CanvasLayer" parent="."]

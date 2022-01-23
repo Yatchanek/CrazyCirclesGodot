@@ -4,6 +4,7 @@ onready var title_screen = $TitleScreen
 onready var info_screen = $InstructionScreen
 onready var game_over_screen = $GameOverScreen
 onready var options_screen = $OptionsScreen
+var arrow_cursor = preload("res://Assets/Menu Icons/upLeft.png")
 
 signal new_game
 signal title_screen
@@ -47,6 +48,7 @@ func _on_Button_pressed(name):
 			next_screen = title_screen
 			emit_signal("title_screen")
 			switch_screen()
+			Input.set_custom_mouse_cursor(arrow_cursor)
 		"Restart":
 			next_screen = null
 			switch_screen()
