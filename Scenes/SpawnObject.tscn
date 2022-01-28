@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Sprites/Circle3.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/SpawnedObject.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sprites/RainbowCircle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Circle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/line.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/InnerCircle.png" type="Texture" id=5]
 
@@ -38,25 +38,22 @@ tracks/1/keys = {
 offsets = PoolRealArray( 0, 0.303867, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[node name="SpawnObject" type="Area2D"]
-scale = Vector2( 0.025, 0.025 )
+[node name="SpawnObject" type="Area2D" groups=["SpawnObjects"]]
 monitorable = false
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-colors = [ Color( 1, 0, 0, 1 ), Color( 1, 0.513726, 0, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 1, 0, 1 ), Color( 0, 1, 1, 1 ), Color( 0, 0.227451, 1, 1 ), Color( 0.709804, 0, 1, 1 ), Color( 1, 0, 0.913725, 1 ), Color( 0.376471, 0.74902, 0.564706, 1 ) ]
+colors = [ Color( 1, 0, 0, 1 ), Color( 1, 0.513726, 0, 1 ), Color( 0.901961, 0.901961, 0.145098, 1 ), Color( 0.0392157, 0.835294, 0.0392157, 1 ), Color( 0.0627451, 0.572549, 0.72549, 1 ), Color( 0, 0.227451, 1, 1 ), Color( 0.709804, 0, 1, 1 ), Color( 1, 0, 0.913725, 1 ), Color( 0.376471, 0.74902, 0.564706, 1 ), Color( 0.0705882, 0.407843, 0.203922, 1 ), Color( 0.890196, 0.415686, 0.415686, 1 ), Color( 0.796078, 0.482353, 0.792157, 1 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 220, 220 )
 
 [node name="InnerSprite" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 5 )
-
-[node name="RainbowSprite" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")

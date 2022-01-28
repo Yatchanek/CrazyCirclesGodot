@@ -16,23 +16,24 @@ func appear():
 
 func _on_Play_mouse_entered():
 	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer/PlayLabel.set("custom_colors/font_color", Color(0.53, 0.13, 0.13))
-
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer/PlayLabel.set("custom_colors/font_outline_modulate", Color(1.0, 1.0, 1.0))
 
 func _on_Play_mouse_exited():
-	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer/PlayLabel.set("custom_colors/font_color", Color(1, 1, 1))
-
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer/PlayLabel.set("custom_colors/font_color", Color(1.0, 1.0, 1.0))
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer/PlayLabel.set("custom_colors/font_outline_modulate", Color(0.53, 0.13, 0.13))
 
 func _on_Options_mouse_entered():
 	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer2/OptionsLabel.set("custom_colors/font_color", Color(0.53, 0.13, 0.13))
-
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer2/OptionsLabel.set("custom_colors/font_outline_modulate", Color(1.0, 1.0, 1.0))
 
 func _on_Options_mouse_exited():
-	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer2/OptionsLabel.set("custom_colors/font_color", Color(1, 1, 1))
-
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer2/OptionsLabel.set("custom_colors/font_color", Color(1.0, 1.0, 1.0))
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer2/OptionsLabel.set("custom_colors/font_outline_modulate", Color(0.53, 0.13, 0.13))
 
 func _on_Help_mouse_entered():
 	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer3/HelpLabel.set("custom_colors/font_color", Color(0.53, 0.13, 0.13))
-
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer3/HelpLabel.set("custom_colors/font_outline_modulate", Color(1.0, 1.0, 1.0))
 
 func _on_Help_mouse_exited():
 	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer3/HelpLabel.set("custom_colors/font_color", Color(1, 1, 1))
+	$MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/VBoxContainer3/HelpLabel.set("custom_colors/font_outline_modulate", Color(0.53, 0.13, 0.13))

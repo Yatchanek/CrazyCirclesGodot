@@ -1,11 +1,7 @@
 extends Node
 
 var sounds = [preload("res://Assets/Sounds/circle.ogg"), 
-			  preload("res://Assets/Sounds/circle2.ogg"),
-			  preload("res://Assets/Sounds/circle2.ogg"), 
 			  preload("res://Assets/Sounds/polygon.ogg"), 
-			  preload("res://Assets/Sounds/polygon2.ogg"),
-			  preload("res://Assets/Sounds/polygon3.ogg"),
 			  preload("res://Assets/Sounds/fail.ogg"),
 			  preload("res://Assets/Sounds/game_over.ogg"),
 			  preload("res://Assets/Sounds/Heal.ogg")]
@@ -17,11 +13,7 @@ var music = [preload("res://Assets/Sounds/MenuMusic.ogg"),
 
 enum {
 	CIRCLE_HIT,
-	CIRCLE_HIT_2,
-	CIRCLE_HIT_3,
 	POLYGON_HIT,
-	POLYGON_HIT_2,
-	POLYGON_HIT_3,
 	MISS,
 	GAME_OVER,
 	HEAL
@@ -42,9 +34,10 @@ func _ready():
 	previous_music_volume = $Music.volume_db
 	current_track = 0
 
-func play_effect(effect):
+func play_effect(effect, pitch = 1.0):
 	for channel in get_children():
 		if channel.name.begins_with("Channel") and !channel.is_playing():
+			channel.pitch_scale = pitch
 			channel.stream = sounds[effect]
 			channel.play()
 			break

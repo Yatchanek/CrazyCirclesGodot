@@ -1,24 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Fonts/RussoOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Combo.gd" type="Script" id=2]
 
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+void vertex() {
+	VERTEX.x += 25.0 * sin(5.0 * TIME);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 44
+outline_size = 2
+outline_color = Color( 0.882353, 0.882353, 0.882353, 1 )
 font_data = ExtResource( 1 )
 
 [node name="Combo" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
+material = SubResource( 3 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -59.5
-margin_top = -19.5
-margin_right = 59.5
-margin_bottom = 19.5
+margin_left = -88.5
+margin_top = -29.5
+margin_right = 88.5
+margin_bottom = 29.5
 custom_fonts/font = SubResource( 1 )
 text = "Combo!"
 __meta__ = {

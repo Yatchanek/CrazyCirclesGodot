@@ -9,6 +9,8 @@ font_path = "res://Assets/Fonts/RussoOne-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 54
+outline_size = 4
+outline_color = Color( 0.533333, 0.133333, 0.133333, 1 )
 font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFontData" id=4]
